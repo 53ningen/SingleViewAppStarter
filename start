@@ -1,0 +1,31 @@
+#!/bin/sh
+
+NOT_INSTALLED_CARTHAGE=$(carthage 2>&1 > /dev/null | grep "command not found")
+if [ -n "$NOT_INSTALLED_CARTHAGE" ]; then
+  echo "carthage is not installed."
+  echo "installing..."
+  brew install carthage
+fi
+
+NOT_INSTALLED_RBENV=$(rbenv version 2>&1 > /dev/null | grep "command not found")
+if [ -n "$NOT_INSTALLED_RBENV" ]; then
+  echo "rbenv is not installed."
+  echo "installing..."
+  brew install rbenv
+fi
+
+RUBY_VERSION=$(cat ./.ruby-version)
+NOT_INSTALLED_RUBY=$(rbenv version 2>&1 > /dev/null | grep "is not installed") 
+if [ -n "$NOT_INSTALLED_RUBY" ]; then
+  echo "ruby $RUBY_VERSION is not installed."
+  echo "installing..."
+  rbenv install
+  rbenv exec gem install bundler
+fi
+
+carthage update --platform ios
+rbenv exec bundle install
+rbenv exec bundle exec pod install --repo-update
+
+open ./SingleViewAppStarter.xcworkspace
+
