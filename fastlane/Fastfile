@@ -1,7 +1,16 @@
 default_platform(:ios)
 
+before_all do
+  cocoapods
+  carthage
+end
+
 platform :ios do
   lane :tests do
-    run_tests(scheme: "SingleViewAppStarterTests")
+    run_tests(
+      scheme: "SingleViewAppStarter",
+      device: "iPhone 8"
+  )
   end
 end
+

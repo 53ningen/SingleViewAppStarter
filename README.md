@@ -1,6 +1,8 @@
 SingleViewAppStarter
 ===
 
+[![Build Status](https://app.bitrise.io/app/7a7214b5d531fe7e/status.svg?token=qF5FhJIYx054EtwqFlinNQ)](https://app.bitrise.io/app/7a7214b5d531fe7e)
+
 iOS/Swift single view application template project
 
 - Package Manager
