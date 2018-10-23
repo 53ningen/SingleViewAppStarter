@@ -21,6 +21,10 @@ iOS/Swift single view application template project
 
 or Run `./start`
 
+## Testing
+
+rbenv exec bundle exec fastlane tests
+
 ## Adding Libs
 ### CocoaPods
 

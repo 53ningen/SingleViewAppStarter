@@ -27,6 +27,12 @@ vendor/
 Cartfile.private
 Carthage/Checkouts
 
+# fastlane
+fastlane/report.xml
+fastlane/screenshots
+fastlane/README.md
+fastlane/test_output/
+
 # others
 *.swp
 !.gitkeep
